@@ -1,24 +1,14 @@
-import { Switch, Route } from "react-router-dom";
-import Home  from './Pages/Home'
-import Login  from './Pages/Login'
-import Register  from './Pages/Register'
+import Routes from "./Routes";
+import Globalstyle from "./Styles/Globalstyle";
+
 
 function App() {
   return (
-    <div >
-      <Switch>
-        <Route path="/home/:user">
-          <Home></Home>
-        </Route>
-        <Route path="/register">
-          <Register></Register>
-        </Route>
-        <Route>
-          <Login path="/login"></Login>
-        </Route>
-      </Switch>
+    <>
+      <Globalstyle />
+      <Routes />
 
-    </div>
+    </>
   );
 }
 
