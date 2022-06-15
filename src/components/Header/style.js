@@ -2,18 +2,15 @@ import styled from "styled-components";
 
 export const ContainerHead = styled.div`
   color: var(--color-primary);
-  width: 28%;
-
-  .button {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  min-width: 500px;
 
   button {
     background-color: var(--Gray-2);
     width: auto;
+    max-width: 100px;
     padding: 1rem;
     border: none;
     border-radius: 4px;
@@ -22,7 +19,7 @@ export const ContainerHead = styled.div`
     margin: 0;
     text-align: center;
     :hover{
-      background-color: var(--Color-primary-Focus);
+      background-color: var(--Gray-3);
     }
   }
 `;

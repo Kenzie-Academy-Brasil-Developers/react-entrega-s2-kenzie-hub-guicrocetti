@@ -1,6 +1,6 @@
-import { createGlobalStyle, GlobalStyleComponent } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -50,4 +50,11 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+
+  .errors{
+    color: var(--Negative)
+  }
+
 `
+
+export default GlobalStyle;

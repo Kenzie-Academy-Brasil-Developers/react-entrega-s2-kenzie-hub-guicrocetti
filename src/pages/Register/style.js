@@ -30,6 +30,7 @@ export const Container = styled.div`
     border: 1.5px solid var(--Gray-0);
   }
 
+
   button {
     background-color: var(--Color-primary-Negative);
     width: 100%;
