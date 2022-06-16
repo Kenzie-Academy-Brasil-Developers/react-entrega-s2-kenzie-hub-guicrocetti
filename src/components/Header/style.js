@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const ContainerHead = styled.div`
   color: var(--color-primary);
   display: flex;
@@ -7,8 +8,7 @@ export const ContainerHead = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 11%;
-  padding-top: 3rem;
+  height: 90px;
   background-color: var(--Gray-4);
 
   > div {
