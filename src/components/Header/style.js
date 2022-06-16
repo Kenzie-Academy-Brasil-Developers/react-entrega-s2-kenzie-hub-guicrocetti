@@ -7,8 +7,8 @@ export const ContainerHead = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
-  padding-top: 4rem;
+  height: 11%;
+  padding-top: 3rem;
   background-color: var(--Gray-4);
 
   > div {
