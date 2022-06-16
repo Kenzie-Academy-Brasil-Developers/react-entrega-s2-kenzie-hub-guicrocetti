@@ -12,13 +12,12 @@ export const Container = styled.div`
 
   form {
     display: flex;
-    width: 28%;
-    min-width: 500px;
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
     padding: 5rem;
     background-color: var(--Gray-3);
+    width: 40%;
   }
 
   input {
@@ -45,7 +44,7 @@ export const Container = styled.div`
 
   .login-register{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     width: 100%;
     gap: 1rem;
     margin: 1rem 0;

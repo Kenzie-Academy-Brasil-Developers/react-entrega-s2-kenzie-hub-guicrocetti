@@ -17,14 +17,19 @@ function Routes() {
 
   return (
     <Switch>
-      <Route path="/home" authenticated={authenticated}>
-        <Home></Home>
+      <Route path="/home">
+        <Home authenticated={authenticated} setAuthenticate={setAuthenticate}></Home>
       </Route>
-      <Route exact path="/register" authenticated={authenticated}>
-        <Register></Register>
+      <Route exact path="/register">
+        <Register authenticated={authenticated} setAuthenticate={setAuthenticate}></Register>
       </Route>
       <Route>
-        <Login exact path="/login" authenticated={authenticated} setAuthenticate={setAuthenticate}></Login>
+        <Login
+          exact
+          path="/login"
+          authenticated={authenticated}
+          setAuthenticate={setAuthenticate}
+        ></Login>
       </Route>
     </Switch>
   );

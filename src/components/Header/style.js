@@ -3,9 +3,20 @@ import styled from "styled-components";
 export const ContainerHead = styled.div`
   color: var(--color-primary);
   display: flex;
-  justify-content: space-between;
-  width: 30%;
-  min-width: 500px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  padding-top: 4rem;
+  background-color: var(--Gray-4);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+
 
   button {
     background-color: var(--Gray-2);
@@ -22,4 +33,5 @@ export const ContainerHead = styled.div`
       background-color: var(--Gray-3);
     }
   }
+
 `;

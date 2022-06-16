@@ -8,18 +8,16 @@ export const Container = styled.div`
   text-align: center;
   gap: 1rem;
   background-color: var(--Gray-4);
-  padding: 5rem;
 
   form {
     display: flex;
-    width: 28%;
-    min-width: 500px;
+    width: 40%;
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
     padding: 5rem;
     background-color: var(--Gray-3);
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 
   input, select {

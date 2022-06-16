@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-function Register({ authenticated }) {
+function Register({ authenticated, setAuthenticate }) {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
@@ -60,7 +60,7 @@ function Register({ authenticated }) {
 
   return (
     <Container>
-      <Header back={"back"} />
+      <Header back={"back"} setAuthenticate={setAuthenticate}/>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Crie sua conta</h2>
         <p>Rápido e grátis, vamos nessa</p>

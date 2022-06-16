@@ -8,26 +8,33 @@ function Header({ ...props }) {
 
   const handleRedirect = (path) => {
     localStorage.clear();
-    history.push(path);
+    props.setAuthenticate(false);
+    return history.push(path);
   };
 
   if (props.back !== undefined) {
     return (
       <ContainerHead>
-        <img src={logo} alt="logo"></img>
-        <button onClick={() => handleRedirect("/login")}>Voltar</button>
+        <div>
+          <img src={logo} alt="logo"></img>
+          <button onClick={() => handleRedirect("/login")}>Voltar</button>
+        </div>
       </ContainerHead>
     );
   } else if (props.logout !== undefined) {
     return (
       <ContainerHead>
-        <img src={logo} alt="logo"></img>
-        <button onClick={() => handleRedirect("/login")}>Sair</button>
+        <div>
+          <img src={logo} alt="logo"></img>
+          <button onClick={() => handleRedirect("/login")}>Sair</button>
+        </div>
       </ContainerHead>
     );
   } else {
     return (
+      <ContainerHead>
         <img src={logo} alt="logo"></img>
+      </ContainerHead>
     );
   }
 }

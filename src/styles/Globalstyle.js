@@ -32,12 +32,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--Color-primary);
   }
 
-  input{
-    background-color: var(--Gray-2);
-    border: none;
-    color: var(--Gray-1);
-  }
-
   body, input, button {
     font-size: 1rem;
   }
