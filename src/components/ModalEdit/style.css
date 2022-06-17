@@ -26,10 +26,6 @@ form {
   gap: 1rem;
 }
 
-form > * {
-  color: white !important;
-  border-radius:4px ;
-}
 
 button {
   background-color: var(--Color-primary);
@@ -37,6 +33,7 @@ button {
   border: none;
   padding: 1rem;
   border-radius: 4px;
+  width: 40%;
 }
 
 button:hover {

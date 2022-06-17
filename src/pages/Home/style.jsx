@@ -58,7 +58,7 @@ export const Container = styled.div`
 
   .Icon, .IconAdd {
     color: var(--Gray-1);
-    font-size: larger;
+    font-size: 28px;
     :hover {
     cursor: pointer;
     color: var(--Negative)
@@ -69,6 +69,10 @@ export const Container = styled.div`
     :hover {
       color: var(--Success)
     }
+  }
+
+  .Icon {
+    pointer-events: none;
   }
 
   @media (max-width: 800px) {

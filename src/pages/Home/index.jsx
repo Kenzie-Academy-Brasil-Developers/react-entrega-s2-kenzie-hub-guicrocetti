@@ -15,18 +15,22 @@ import RuleFolderIcon from "@mui/icons-material/RuleFolder";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useEffect, useState } from "react";
 import ModalAdd from "../../components/Modal";
+import ModalEdit from "../../components/ModalEdit";
 
 function Home({ authenticated, setAuthenticate }) {
   const [listItens, setListItens] = useState();
   const [openModalAdd, setOpenModalAdd] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [taskId, setTaskId] = useState("");
+  const [techItem, setTechItem] = useState("");
   const userId = JSON.parse(localStorage.getItem("@Khub:user")).id || "";
-
 
   function loadList() {
     api
       .get("users/" + userId, {})
       .then((response) => {
         setListItens(response.data.techs);
+        localStorage.setItem("@Khub:user", JSON.stringify(response.data));
       })
       .catch((error) => {
         console.log(error);
@@ -34,14 +38,17 @@ function Home({ authenticated, setAuthenticate }) {
   }
 
   useEffect(() => {
-    loadList()   //eslint-disable-next-line
-  }, [])
-
-
-  
+    loadList(); //eslint-disable-next-line
+  }, []);
 
   const handleOpen = () => {
     setOpenModalAdd(true);
+  };
+
+  const handleModalEdit = (e) => {
+    setOpen(true);
+    setTechItem(e.target.value);
+    setTaskId(e.target.id);
   };
 
   if (!authenticated) {
@@ -53,8 +60,6 @@ function Home({ authenticated, setAuthenticate }) {
     padding: theme.spacing(1),
     color: theme.palette.text.secondary,
   }));
-
-
 
   return (
     <>
@@ -92,9 +97,8 @@ function Home({ authenticated, setAuthenticate }) {
               </Item>
             </Stack>
             <Stack spacing={2} className="Stack">
-            {listItens?.map((item) => (
-              
-                <Item className="Item" key={item.status.id}>
+              {listItens?.map((item) => (
+                <Item className="Item" key={item.id}>
                   <Grid justifyContent="flex-end" alignItems="center" container>
                     <Grid item xs={9}>
                       <h4>{item.title}</h4>
@@ -106,21 +110,32 @@ function Home({ authenticated, setAuthenticate }) {
                       <IconButton
                         aria-label="delete"
                         size="small"
-                        onClick={() => {
-                          alert("clicado");
-                        }}
+                        id={item.id}
+                        value={item.title}
+                        onClick={(e) => handleModalEdit(e)}
                       >
                         <RuleFolderIcon className="Icon" />
                       </IconButton>
                     </Grid>
                   </Grid>
                 </Item>
-            ))}
+              ))}
             </Stack>
           </Paper>
         </Box>
       </Container>
-      <ModalAdd openModalAdd={openModalAdd} setOpenModalAdd={setOpenModalAdd} loadList={loadList}/>
+      <ModalAdd
+        openModalAdd={openModalAdd}
+        setOpenModalAdd={setOpenModalAdd}
+        loadList={loadList}
+      />
+      <ModalEdit
+        open={open}
+        setOpen={setOpen}
+        loadList={loadList}
+        taskId={taskId}
+        techItem={techItem}
+      />
     </>
   );
 }
