@@ -1,5 +1,6 @@
 import { Redirect } from "react-router-dom";
 import Header from "../../components/Header";
+import api from "../../services/api";
 import { Container } from "./style";
 import {
   Paper,
@@ -12,15 +13,35 @@ import {
 } from "@mui/material/";
 import RuleFolderIcon from "@mui/icons-material/RuleFolder";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalAdd from "../../components/Modal";
 
 function Home({ authenticated, setAuthenticate }) {
+  const [listItens, setListItens] = useState();
   const [openModalAdd, setOpenModalAdd] = useState(false);
+  const userId = JSON.parse(localStorage.getItem("@Khub:user")).id || "";
+
+
+  function loadList() {
+    api
+      .get("users/" + userId, {})
+      .then((response) => {
+        setListItens(response.data.techs);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    loadList()   //eslint-disable-next-line
+  }, [])
+
+
+  
 
   const handleOpen = () => {
     setOpenModalAdd(true);
-    console.log(openModalAdd)
   };
 
   if (!authenticated) {
@@ -32,6 +53,8 @@ function Home({ authenticated, setAuthenticate }) {
     padding: theme.spacing(1),
     color: theme.palette.text.secondary,
   }));
+
+
 
   return (
     <>
@@ -69,34 +92,35 @@ function Home({ authenticated, setAuthenticate }) {
               </Item>
             </Stack>
             <Stack spacing={2} className="Stack">
-              <Item className="Item">
-                <Grid justifyContent="flex-end" alignItems="center" container>
-                  <Grid item xs={9}>
-                    <h4>React JS</h4>
+            {listItens?.map((item) => (
+              
+                <Item className="Item" key={item.status.id}>
+                  <Grid justifyContent="flex-end" alignItems="center" container>
+                    <Grid item xs={9}>
+                      <h4>{item.title}</h4>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <Typography>{item.status}</Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                      <IconButton
+                        aria-label="delete"
+                        size="small"
+                        onClick={() => {
+                          alert("clicado");
+                        }}
+                      >
+                        <RuleFolderIcon className="Icon" />
+                      </IconButton>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={2}>
-                    <Typography>Filled</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <IconButton
-                      aria-label="delete"
-                      size="small"
-                      onClick={() => {
-                        alert("clicado");
-                      }}
-                    >
-                      <RuleFolderIcon className="Icon" />
-                    </IconButton>
-                  </Grid>
-                </Grid>
-              </Item>
-              <Item className="Item">Item 2</Item>
-              <Item className="Item">Item 3</Item>
+                </Item>
+            ))}
             </Stack>
           </Paper>
         </Box>
       </Container>
-      <ModalAdd openModalAdd={openModalAdd} setOpenModalAdd={setOpenModalAdd} />
+      <ModalAdd openModalAdd={openModalAdd} setOpenModalAdd={setOpenModalAdd} loadList={loadList}/>
     </>
   );
 }

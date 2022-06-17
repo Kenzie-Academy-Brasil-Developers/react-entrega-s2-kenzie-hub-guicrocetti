@@ -112,10 +112,10 @@ function Register({ authenticated, setAuthenticate }) {
         )}
         <label>Selecionar Módulo</label>
         <select type="text" {...register("course_module")}>
-          <option value="Primeiro Módulo">Primeiro Módulo</option>
-          <option value="Primeiro Módulo">Segundo Módulo</option>
-          <option value="Primeiro Módulo">Terceiro Módulo</option>
-          <option value="Primeiro Módulo">Quarto Módulo</option>
+          <option value="Primeiro Módulo">Primeiro módulo (Introdução ao Frontend)</option>
+          <option value="Primeiro Módulo">Segundo módulo (Frontend Avançado)o</option>
+          <option value="Primeiro Módulo">Terceiro módulo (Introdução ao Backend)</option>
+          <option value="Primeiro Módulo">Quarto módulo (Backend Avançado)</option>
         </select>
         {errors.course_module && (
           <span className="errors"> {errors.course_module.message}</span>
