@@ -18,6 +18,7 @@ export const Container = styled.div`
     padding: 5rem;
     background-color: var(--Gray-3);
     margin-top: 3rem;
+    min-width: 500px;
   }
 
   input, select {
@@ -56,4 +57,25 @@ export const Container = styled.div`
     align-self: center;
   }
 
+  @media (max-width: 600px) {
+      form {
+        width: 100%;
+        min-width: 300px;
+        padding: 1rem;
+        margin: 0;
+      }
+      input {
+        width: 100%;
+        margin: 0;
+        min-width: 150px;
+      }
+    }
+/* 
+    @media (max-width: 385px) {
+      form {
+        display: flex;
+        padding: 0;
+      }
+      width: auto;
+    } */
 `

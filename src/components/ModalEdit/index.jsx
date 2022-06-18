@@ -100,8 +100,10 @@ export default function ModalEdit({ open, setOpen, loadList, taskId, techItem })
                 <MenuItem value={"Intermediário"}>Intermediário</MenuItem>
                 <MenuItem value={"Avançado"}>Avançado</MenuItem>
               </Select>
+              <div className="Modal-Buttons">
               <button type="click" onClick={handleSubmit(AddToList)}>Salvar alterações</button>
               <button type="click" onClick={handleSubmit(deletItem)}>Excluir</button>
+              </div>
             </form>
           </Box>
         </Fade>

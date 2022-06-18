@@ -18,6 +18,7 @@ export const Container = styled.div`
     padding: 5rem;
     background-color: var(--Gray-3);
     width: 40%;
+    min-width: 500px;
   }
 
   input {
@@ -67,5 +68,9 @@ export const Container = styled.div`
   h2 {
     align-self: center;
   }
+
+@media (max-width: 600px) {
+  
+}
 
 `

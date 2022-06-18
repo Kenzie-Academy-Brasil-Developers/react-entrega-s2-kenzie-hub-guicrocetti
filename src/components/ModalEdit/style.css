@@ -7,6 +7,7 @@
   border: none;
   box-shadow: 24;
   background-color: var(--Gray-3);
+  min-width: 400px;
 }
 
 .headerGrid {
@@ -33,9 +34,27 @@ button {
   border: none;
   padding: 1rem;
   border-radius: 4px;
-  width: 40%;
 }
 
 button:hover {
   background-color: var(--Color-primary-Focus)
+}
+
+.Modal-Buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.MuiOutlinedInput-root > input {
+  color: white;
+}
+
+
+@media (max-width: 800px) {
+  .modalBox{
+    width: 90%;
+    min-width: 300px;
+  }
 }

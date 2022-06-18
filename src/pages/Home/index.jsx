@@ -84,6 +84,7 @@ function Home({ authenticated, setAuthenticate }) {
                   alignItems="center"
                   container
                   padding="1rem"
+                  className="tech-header"
                 >
                   <h3>Tecnologias</h3>
                   <IconButton
@@ -113,6 +114,7 @@ function Home({ authenticated, setAuthenticate }) {
                         id={item.id}
                         value={item.title}
                         onClick={(e) => handleModalEdit(e)}
+                        className='Edit-Button'
                       >
                         <RuleFolderIcon className="Icon" />
                       </IconButton>

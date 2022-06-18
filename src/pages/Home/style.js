@@ -8,7 +8,10 @@ export const Container = styled.div`
   align-content: space-between;
   height: 100%;
 
-  h1,h2,h3,h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     color: white;
   }
 
@@ -56,45 +59,82 @@ export const Container = styled.div`
     }
   }
 
-  .Icon, .IconAdd {
+  .Icon,
+  .IconAdd {
     color: var(--Gray-1);
     font-size: 28px;
     :hover {
-    cursor: pointer;
-    color: var(--Negative)
-  }
+      cursor: pointer;
+      color: var(--Negative);
+    }
   }
 
   .IconAdd {
     :hover {
-      color: var(--Success)
+      color: var(--Success);
     }
   }
 
   .Icon {
     pointer-events: none;
+    :hover {
+      color: var(--Negative);
+    }
   }
+  /* 
+  @media (max-width: 1100px) {
+    .MuiPaper-root {
+      width: 80%;
+    }
+    .Paper {
+      width: 80%;
+    } */
 
   @media (max-width: 800px) {
-    
     .Paper {
-    width: 80%;
-  }
-  .Icon, .IconAdd {
+      width: 80%;
+    }
+    .Icon,
+    .IconAdd {
       font-size: xx-large;
     }
-
   }
 
   @media (max-width: 600px) {
     .Paper {
-
-    width: 100%;
-  }
-  .Icon, .IconAdd {
+      width: 100%;
+    }
+    .Icon,
+    .IconAdd {
       font-size: xx-large;
     }
-
+    .MuiGrid-root {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .MuiGrid-item {
+      font-size: 30px;
+      padding: 0.2rem;
+    }
+    .MuiGrid-grid-xs-1 {
+      position: absolute;
+      max-width: 100%;
+      width: 100%;
+    }
+    .tech-header{
+      display: flex;
+      justify-content: space-between;
+    }
+    .Edit-Button {
+      /* position: fixed; */
+      width: 100%;
+      max-width: 100% !important;
+      height: 80px;
+      cursor: pointer;
+      border-radius: 0;
+      > svg {
+        display: none;
+      }
+    }
   }
-
 `;

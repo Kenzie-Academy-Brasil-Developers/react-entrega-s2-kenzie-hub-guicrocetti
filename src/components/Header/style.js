@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ContainerHead = styled.div`
   color: var(--color-primary);
   display: flex;
@@ -17,7 +16,6 @@ export const ContainerHead = styled.div`
     width: 40%;
   }
 
-
   button {
     background-color: var(--Gray-2);
     width: auto;
@@ -29,9 +27,27 @@ export const ContainerHead = styled.div`
     font-weight: bold;
     margin: 0;
     text-align: center;
-    :hover{
+    :hover {
       background-color: var(--Gray-3);
     }
   }
 
+  @media (max-width: 600px) {
+    > div {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 10px;
+      align-items: center;
+      > img {
+        width: 200px;
+        height: auto;
+      }
+      > button {
+        :focus{
+          background-color: var(--Negative);
+        }
+      }
+    }
+  }
 `;
