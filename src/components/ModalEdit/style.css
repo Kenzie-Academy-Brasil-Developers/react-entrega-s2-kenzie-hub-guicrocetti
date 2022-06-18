@@ -54,7 +54,17 @@ button:hover {
 
 @media (max-width: 800px) {
   .modalBox{
-    width: 90%;
-    min-width: 300px;
+    width: 85%;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modalBox{
+    width: 100%;
+  }
+  .Modal-Buttons{
+    display: flex;
+    flex-direction: column;
   }
 }
