@@ -59,7 +59,7 @@ button:hover {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 470px) {
   .modalBox{
     width: 100%;
   }

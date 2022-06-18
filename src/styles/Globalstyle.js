@@ -20,7 +20,11 @@ const GlobalStyle = createGlobalStyle`
     --Color-primary: #FF577F;
     --Color-primary-Focus: #FF427F;
     --Color-primary-Negative: #59323F;
+    
+  }
 
+  #root {
+    width: 100vw;
   }
 
   body {
@@ -43,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
 
 
   .errors{
